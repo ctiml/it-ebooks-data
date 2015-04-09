@@ -5,12 +5,12 @@ $(document).ready(function() {
     "lengthMenu": [[50, 100, 500, 1000, -1], [50, 100, 500, 1000, "All"]],
     "columnDefs": [
       {
-        "targets": [2, 3, 9, 10],
+        "targets": [2, 3, 9, 10, 11, 12],
         "visible": false,
         "searchable": false
     },
     {
-        "targets": [8, 11, 12],
+        "targets": [8],
         "searchable": false
     }
     ]
