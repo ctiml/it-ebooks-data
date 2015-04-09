@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var dt = $('#dt').dataTable({
-    "ajax": '/ebooks_dt.json',
+    "ajax": window.location.pathname + 'ebooks_dt.json',
     "pageLength": 100,
     "lengthMenu": [[50, 100, 500, 1000, -1], [50, 100, 500, 1000, "All"]],
     "columnDefs": [
