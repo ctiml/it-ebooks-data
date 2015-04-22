@@ -2,7 +2,7 @@ $(document).ready(function() {
   var dataset = [];
   var deferreds = [];
   var dataPaths = [
-    window.location.pathname + 'ebooks_dt.json'
+    window.location.pathname + 'data/ebooks_dt-2015-04-22.json'
   ];
 
   for (var i in dataPaths) {
