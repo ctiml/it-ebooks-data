@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'date'
 require 'net/http'
 require 'nokogiri'
 require 'json'
@@ -7,7 +8,7 @@ require 'thread'
 require 'pry'
 
 page_start = 1
-page_end = 5647
+page_end = 5800
 packages = []
 package = []
 package_size = 100
@@ -64,16 +65,16 @@ packages.each do |p|
         book['id'],
         book['name'],
         book['image'],
-        book['description'],
+        '', #book['description'],
         book['publisher'],
         book['author'],
         book['isbn'],
         book['datePublished'],
         book['numberOfPages'],
-        book['inLanguage'],
-        book['bookFormat'],
-        book['fileSize'],
-        '<a target="_blank" href="' + book['download'] + '">Link</a>'
+        '', #book['inLanguage'],
+        '', #book['bookFormat'],
+        '', #book['fileSize'],
+        '' #'<a target="_blank" href="' + book['download'] + '">Link</a>'
       ]
       begin
         test_json = book.to_json
@@ -95,10 +96,12 @@ books.sort! { |x, y| x['id'] <=> y['id'] }
 books_dt.sort! { |x, y| x.first <=> y.first }
 books_dt = { "data" => books_dt }
 
-file = File.open('ebooks.json', 'w+')
+date = Date.today.strftime('%F')
+
+file = File.open("ebooks-#{date}.json", 'w+')
 file.write(books.to_json)
 file.close
 
-file = File.open('ebooks_dt.json', 'w+')
+file = File.open("ebooks_dt-#{date}.json", 'w+')
 file.write(books_dt.to_json)
 file.close
