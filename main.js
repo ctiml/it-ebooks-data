@@ -13,6 +13,9 @@ $(document).ready(function() {
 
   $.when.apply(this, deferreds
   ).then(function() {
+    $('#loading').hide();
+    $('#dt').show();
+
     var dt = $('#dt').dataTable({
       //"ajax": window.location.pathname + 'ebooks_dt.json',
       "data": dataset,

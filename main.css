@@ -4,6 +4,19 @@
   margin-bottom: 30px;
   padding: 0;
 }
+
+#loading {
+  text-align: center;
+}
+
+.loading-text {
+  font-size: 1.2em;
+}
+
+#dt {
+  display: none;
+}
+
 .fixed-bottom {
   position: fixed;
   right: 0;
