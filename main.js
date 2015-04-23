@@ -23,14 +23,22 @@ $(document).ready(function() {
       "lengthMenu": [[50, 100, 500, 1000, -1], [50, 100, 500, 1000, "All"]],
       "columnDefs": [
         {
-        "targets": [2, 3, 9, 10, 11, 12],
-        "visible": false,
-        "searchable": false
-      },
-      {
-        "targets": [8],
-        "searchable": false
-      }
+          "targets": [2, 3, 9, 10, 11, 12],
+          "visible": false,
+          "searchable": false
+        },
+        {
+          "targets": [8],
+          "searchable": false
+        },
+        {
+          "width": "110px",
+          "targets": 6
+        },
+        {
+          "width": "240px",
+          "targets": 5
+        }
       ]
     });
   });
