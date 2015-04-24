@@ -19,6 +19,7 @@ $(document).ready(function() {
     var dt = $('#dt').dataTable({
       //"ajax": window.location.pathname + 'ebooks_dt.json',
       "data": dataset,
+      "searchHighlight": true,
       "pageLength": 50,
       "lengthMenu": [[50, 100, 500, 1000, -1], [50, 100, 500, 1000, "All"]],
       "columnDefs": [
