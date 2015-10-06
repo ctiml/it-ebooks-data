@@ -1,16 +1,35 @@
 $(document).ready(function() {
+  var key = 'ctiml.github.io/it-ebooks-data';
   var dataset = [];
   var deferreds = [];
-  var dataPaths = [
+  var dataFiles = [
     'ebooks_dt-2015-09-21.json',
     'ebooks_dt-2015-08-15.json',
     'ebooks_dt-2015-04-22.json'
   ];
 
-  for (var i in dataPaths) {
-    deferreds.push($.getJSON(window.location.pathname + 'data/' + dataPaths[i], function(res) {
-      dataset = dataset.concat(res.data);
-    }));
+  var concatData = function(res) {
+    dataset = dataset.concat(res.data);
+  }
+
+  var fetchData = function(res) {
+    if (typeof(Storage) !== "undefined") {
+      localStorage.setItem(key + this.url, JSON.stringify(res));
+    }
+    concatData(res);
+  }
+
+  for (var i in dataFiles) {
+    var res = null;
+    if (typeof(Storage) !== "undefined") {
+      var s = localStorage.getItem(key + '/data/' + dataFiles[i]);
+      res = JSON.parse(s);
+    }
+    if (res != null && res.data) {
+      concatData(res);
+    } else {
+      deferreds.push($.getJSON('/data/' + dataFiles[i], fetchData));
+    }
   }
 
   $.when.apply(this, deferreds
