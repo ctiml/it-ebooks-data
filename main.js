@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var key = 'ctiml.github.io/it-ebooks-data';
+  var key = 'ctiml.github.io';
   var dataset = [];
   var deferreds = [];
   var dataFiles = [
@@ -22,13 +22,13 @@ $(document).ready(function() {
   for (var i in dataFiles) {
     var res = null;
     if (typeof(Storage) !== "undefined") {
-      var s = localStorage.getItem(key + '/data/' + dataFiles[i]);
+      var s = localStorage.getItem(key + window.location.pathname + 'data/' + dataFiles[i]);
       res = JSON.parse(s);
     }
     if (res != null && res.data) {
       concatData(res);
     } else {
-      deferreds.push($.getJSON('/data/' + dataFiles[i], fetchData));
+      deferreds.push($.getJSON(window.location.pathname + 'data/' + dataFiles[i], fetchData));
     }
   }
 
