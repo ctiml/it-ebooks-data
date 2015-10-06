@@ -2,13 +2,13 @@ $(document).ready(function() {
   var dataset = [];
   var deferreds = [];
   var dataPaths = [
-    window.location.pathname + 'data/ebooks_dt-2015-04-22.json',
-    window.location.pathname + 'data/ebooks_dt-2015-08-15.json',
-    window.location.pathname + 'data/ebooks_dt-2015-09-21.json'
+    'ebooks_dt-2015-09-21.json',
+    'ebooks_dt-2015-08-15.json',
+    'ebooks_dt-2015-04-22.json'
   ];
 
   for (var i in dataPaths) {
-    deferreds.push($.getJSON(dataPaths[i], function(res) {
+    deferreds.push($.getJSON(window.location.pathname + 'data/' + dataPaths[i], function(res) {
       dataset = dataset.concat(res.data);
     }));
   }
