@@ -3,6 +3,7 @@ $(document).ready(function() {
   var dataset = [];
   var deferreds = [];
   var dataFiles = [
+    'ebooks_dt-2015-11-21.json',
     'ebooks_dt-2015-09-21.json',
     'ebooks_dt-2015-08-15.json',
     'ebooks_dt-2015-04-22.json'
